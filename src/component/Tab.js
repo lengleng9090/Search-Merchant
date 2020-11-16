@@ -7,6 +7,7 @@ class Tab extends React.Component{
     render(){
         return (
             <div className="col-12" style={{backgroundColor:"#27397c",padding:10}}>
+            <div className="" style={{backgroundColor:"#27397c",padding:10}}>
                 <div style={{color:"white",marginLeft:20}}>
                 หน้าแรก / ค้นหา
                 </div>

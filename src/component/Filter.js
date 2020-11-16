@@ -39,11 +39,12 @@ class Filter extends React.Component{
               {this.state.loading || !this.state.fitler ? (<div></div>) 
               : (
               <div onChange={this.onChangeValue} >
-              <input type="radio" value="default" name="gender"/> ทั้งหมด <br />
-              <input type="radio" value={this.state.fitler.categories[0].name} name="gender" /> {this.state.fitler.categories[0].name} <br />
-              <input type="radio" value={this.state.fitler.categories[1].name} name="gender" /> {this.state.fitler.categories[1].name} <br />
-              <input type="radio" value={this.state.fitler.categories[2].name} name="gender" /> {this.state.fitler.categories[2].name} <br />
-              <input type="radio" value={this.state.fitler.categories[3].name} name="gender" /> {this.state.fitler.categories[3].name} <br />
+              <input type="radio" value="default" name="shopType"/> ทั้งหมด <br />
+              {this.state.fitler.categories.map((result)=>
+              <div>
+                <input type="radio" value={result.name} name="shopType" /> {result.name} <br />
+              </div>
+              )}
               </div>
               )}
             <br />
@@ -78,9 +79,11 @@ class Filter extends React.Component{
               <label>
               <div onChange={this.onChangeValue}>
                   <input type="radio" value="all" name="gender"/> ทั้งหมด <br />
+                  <input type="radio" value="all" name="foodType"/> ทั้งหมด <br />
                   {this.state.fitler.categories[0].subcategories.map((subcategorie) =>
                   <div>
                   <input type="radio" value={subcategorie} name="gender" /> {subcategorie}
+                  <input type="radio" value={subcategorie} name="foodType" /> {subcategorie}
                   </div>
                   )}
             </div>
