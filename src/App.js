@@ -5,11 +5,6 @@ import Tab from './component/Tab';
 
 function App() {
   return (
-    <div className="fulid-container">
-      <Search />
-      <Tab />
-      <div className="offset-1 col-11" style={{fontSize:20,padding:20}}><b>ผลการค้นหา</b></div>
-      <Filter />
     <div className="fluid-container">
       <div className="row-1"><Search /></div>
       <div className="row-2"><Tab /></div>

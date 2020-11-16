@@ -29,7 +29,6 @@ class Filter extends React.Component{
     
       render() {
         return (
-          <div className="col-6 filter">
           <div className= "offset-2" style={{backgroundColor : "white",
           width: 350,
           padding:10,
@@ -78,11 +77,9 @@ class Filter extends React.Component{
               : (
               <label>
               <div onChange={this.onChangeValue}>
-                  <input type="radio" value="all" name="gender"/> ทั้งหมด <br />
                   <input type="radio" value="all" name="foodType"/> ทั้งหมด <br />
                   {this.state.fitler.categories[0].subcategories.map((subcategorie) =>
                   <div>
-                  <input type="radio" value={subcategorie} name="gender" /> {subcategorie}
                   <input type="radio" value={subcategorie} name="foodType" /> {subcategorie}
                   </div>
                   )}
@@ -92,7 +89,6 @@ class Filter extends React.Component{
 
 
 
-      </div>
     </div>
         );
       }
