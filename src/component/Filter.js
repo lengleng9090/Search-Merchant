@@ -24,7 +24,7 @@ class Filter extends React.Component{
         event.preventDefault();
       }
       onChangeValue(event) {
-        console.log(event.target.value);
+        this.setState({type : event.target.value});
       }
     
       render() {
