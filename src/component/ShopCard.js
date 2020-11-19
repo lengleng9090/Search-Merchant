@@ -1,4 +1,7 @@
 import React from 'react';
+const logoCar = '/Images/ที่จอดรถ.png';
+const logoPet = '/Images/สัตว์เลี้ยง.png';
+
 class ShopCard extends React.Component{
  constructor(props){
     super(props);
@@ -27,8 +30,16 @@ class ShopCard extends React.Component{
                :
                (<div className="row"><strong>สินค้าแนะนำ : </strong> {this.props.merchant.recommendedItems}</div>)}
                
+               <div className="row">
+               {this.props.merchant.facilities.map((facilitie)=>
+               facilitie == 'ที่จอดรถ' ? (<img src={logoCar} alt="logo" height="30" width="30" />) 
+               :
+               (facilitie == 'สามารถนำสัตว์เลี้ยงเข้าได้' ? (<img src={logoPet} alt="logo" height="25" width="25" />) :(null))
+              )}
+              </div>
+            </div>
               
-           </div>
+           
            </div>
         </div>
      );
