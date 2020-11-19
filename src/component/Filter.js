@@ -25,6 +25,9 @@ class Filter extends React.Component{
       }
       onChangeValue(event) {
         this.setState({type : event.target.value});
+        if (this.props.confirm) {
+        this.props.confirm(event.target.value);
+        }
       }
     
       render() {
