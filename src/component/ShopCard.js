@@ -1,7 +1,7 @@
 import React from 'react';
-const logoCar = './Images/ที่จอดรถ.png';
-const logoPet = './Images/สัตว์เลี้ยง.png';
-const booking = './Images/booking.png';
+import logoCar from '../asset/ที่จอดรถ.png';
+import logoPet from  '../asset/สัตว์เลี้ยง.png';
+import booking from  '../asset/booking.png';
 
 class ShopCard extends React.Component{
  constructor(props){
