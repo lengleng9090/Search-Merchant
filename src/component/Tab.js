@@ -1,14 +1,10 @@
 import React from 'react';
 class Tab extends React.Component{
-    constructor(props){
-        super(props);
-        
-    }
     render(){
         return (
             <div className="" style={{backgroundColor:"#27397c",padding:10}}>
-                <div style={{color:"white",marginLeft:20}}>
-                หน้าแรก / ค้นหา
+                <div style={{color:"white"}} className="offset-1">
+                <u>หน้าแรก</u> / ค้นหา
                 </div>
             </div>
         );

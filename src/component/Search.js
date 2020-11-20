@@ -1,6 +1,5 @@
 import React from 'react';
 const Logo = '/Images/halfhalf-logo.png';
-
 class Search extends React.Component{
     constructor(props){
         super(props);
@@ -11,6 +10,11 @@ class Search extends React.Component{
             message:''
         }
     }
+    _handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            this.props.onSearchValue(e.target.value === "" ? ("default"):(e.target.value))
+        }
+      }
     render(){
         return(
             <div  className="d-flex justify-content-center" style={{backgroundColor:"white",padding:10}}>
@@ -19,10 +23,9 @@ class Search extends React.Component{
                 <input 
                     className="form-control"
                     type="text"
-                    value=""
                     id="search-input"
                     size="120"
-                    onChange={(e) => this.setState({ textValue: e.target.value })}
+                    onKeyDown={this._handleKeyDown}
                     placeholder="ค้นหาชื่อ ร้านอาหาร และเครื่องดื่ม ร้านธงฟ้า ร้านค้า OTOP และสินค้าทั่วไป" />
                 </label>
             </div>
