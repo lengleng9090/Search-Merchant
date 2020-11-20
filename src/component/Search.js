@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from './Images/halfhalf-logo.png';
+const Logo = './Images/halfhalf-logo.png';
 class Search extends React.Component{
     constructor(props){
         super(props);
