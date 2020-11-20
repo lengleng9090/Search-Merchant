@@ -2,12 +2,12 @@ import React from 'react';
 class Filter extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {value: ''
-      ,loading : true,
+        this.state = {
+      loading : true,
       fitler : null};
     
         this.onChangeValue = this.onChangeValue.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.onChangeSubValue = this.onChangeSubValue.bind(this);
       }
       async componentDidMount(){
           const url = "https://panjs.com/ywc18.json";
@@ -15,19 +15,14 @@ class Filter extends React.Component{
           const data = await response.json();
           this.setState({ fitler:data, loading:false});
       }
-      handleChange(event) {
-        this.setState({value: event.target.value});
-      }
-    
-      handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
-        event.preventDefault();
-      }
+
       onChangeValue(event) {
-        this.setState({type : event.target.value});
-        if (this.props.confirm) {
-        this.props.confirm(event.target.value);
+        this.setState({value: event.target.value});
+        this.props.onValueConfirm(event.target.value == "default"? ("ทั้งหมด"):(event.target.value));
         }
+
+      onChangeSubValue(event){
+        this.setState({subValue: event.target.value});
       }
     
       render() {
@@ -36,20 +31,22 @@ class Filter extends React.Component{
           width: 350,
           padding:10,
           borderRadius:5,
-          marginTop:20}}>
+          marginTop:20,
+          marginBottom:20}}>
               <p><b>ประเภทร้านค้า :</b></p>
               {this.state.loading || !this.state.fitler ? (<div></div>) 
               : (
-              <div onChange={this.onChangeValue} >
-              <input type="radio" value="default" name="shopType"/> ทั้งหมด <br />
+              <div>
+              <input type="radio" value="default" name="shopType" onChange={this.onChangeValue} /> ทั้งหมด <br />
               {this.state.fitler.categories.map((result)=>
               <div>
-                <input type="radio" value={result.name} name="shopType" /> {result.name} <br />
+                <input type="radio" value={result.name} name="shopType" onChange={this.onChangeValue} /> {result.name} <br />
               </div>
               )}
               </div>
               )}
             <br />
+
             <p><b>จังหวัด/ใกล้ฉัน</b></p>
             {this.state.loading || !this.state.fitler ? (<div></div>) 
               : (
@@ -63,6 +60,8 @@ class Filter extends React.Component{
                 </select>
             </div>
               )}
+            <br />
+
             <p><b>ราคา</b></p>
             {this.state.loading || !this.state.fitler ? (<div></div>) 
               : (
@@ -75,20 +74,61 @@ class Filter extends React.Component{
                 </select>
             </div>
               )}
-            <p><b>ประเภทร้านอาหารและเครื่องดื่ม</b></p>
-            {this.state.loading || !this.state.fitler ? (<div></div>) 
-              : (
-              <label>
-              <div onChange={this.onChangeValue}>
+            <br />
+
+            {this.state.value == "ร้านอาหารและเครื่องดื่ม" ?(
+              <div>
+                <p><b>ประเภทร้านอาหารและเครื่องดื่ม</b></p>
+                {this.state.loading || !this.state.fitler ? (null) 
+                : (
+                  <div onChange={this.onChangeSubValue}>
                   <input type="radio" value="all" name="foodType"/> ทั้งหมด <br />
                   {this.state.fitler.categories[0].subcategories.map((subcategorie) =>
-                  <div>
-                  <input type="radio" value={subcategorie} name="foodType" /> {subcategorie}
+                      <div>
+                      <input type="radio" value={subcategorie} name="foodType" /> {subcategorie}
+                      </div>
+                    )}
                   </div>
-                  )}
-            </div>
-            </label>
               )}
+              </div>
+              
+            ):(null)}
+
+            {this.state.value =="ร้านค้า OTOP" ? (
+              <div>
+              <p><b>ประเภทร้านค้า OTOP</b></p>
+              {this.state.loading || !this.state.fitler ? (null) 
+              : (
+                <div onChange={this.onChangeSubValue}>
+                <input type="radio" value="all" name="shopType"/> ทั้งหมด <br />
+                {this.state.fitler.categories[1].subcategories.map((subcategorie) =>
+                    <div>
+                    <input type="radio" value={subcategorie} name="shopType" /> {subcategorie}
+                    </div>
+                  )}
+                </div>
+            )}
+            </div>
+            ):
+            (null)}
+
+            {this.state.value =="สินค้าทั่วไป" ? (
+              <div>
+              <p><b>ประเภทร้านค้าสินค้าทั่วไป</b></p>
+              {this.state.loading || !this.state.fitler ? (null) 
+              : (
+                <div onChange={this.onChangeSubValue}>
+                <input type="radio" value="all" name="shopType"/> ทั้งหมด <br />
+                {this.state.fitler.categories[3].subcategories.map((subcategorie) =>
+                    <div>
+                    <input type="radio" value={subcategorie} name="shopType" /> {subcategorie}
+                    </div>
+                  )}
+                </div>
+            )}
+            </div>
+            ):
+            (null)}
 
 
 

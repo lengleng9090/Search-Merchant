@@ -7,11 +7,11 @@ class Main extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            cat: null,
+            value: null,
             data:null,
             loading:true
         };
-        this.onConfirm = this.onConfirm.bind(this);
+        this.onValueConfirm = this.onValueConfirm.bind(this);
     }
     async componentDidMount(){
         const url = "https://panjs.com/ywc18.json";
@@ -19,22 +19,22 @@ class Main extends React.Component{
         const data = await response.json();
         this.setState({ data:data, loading:false});
     }
-    onConfirm(order) {
+    onValueConfirm(order) {
         console.log(order);
-        this.setState({cat: order});
+        this.setState({value: order});
     }
     render(){
         return(
     <div className="fluid-container">
       <div className="row-1"><Search /></div>
       <div className="row-2"><Tab /></div>
-      {this.state.cat == null ? 
-      (<div className="row offset-1" style={{padding:20}}>ผลการค้นหา </div>)
+      {this.state.value == null ? 
+      (<div className="row offset-1" style={{padding:20}}>ผลการค้นหา ทั้งหมด</div>)
       :
-      (<div className="row offset-1" style={{padding:20}}>ผลการค้นหา {this.state.cat}</div>)
+      (<div className="row offset-1" style={{padding:20}}>ผลการค้นหา {this.state.value}</div>)
     }
       <div className="row">
-          <div className="col-4"><Filter confirm={this.onConfirm}/></div>
+          <div className="col-4"><Filter onValueConfirm={this.onValueConfirm}/></div>
           <div className="col">
                 <div className="row">
                 {!this.state.data ||this.state.loading ?(null) 
