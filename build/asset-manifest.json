@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/YWC/static/css/main.2ebc5c5b.chunk.css",
+    "main.js": "/YWC/static/js/main.84e5bd24.chunk.js",
+    "main.js.map": "/YWC/static/js/main.84e5bd24.chunk.js.map",
+    "runtime-main.js": "/YWC/static/js/runtime-main.4db7e0a4.js",
+    "runtime-main.js.map": "/YWC/static/js/runtime-main.4db7e0a4.js.map",
+    "static/js/2.ae068816.chunk.js": "/YWC/static/js/2.ae068816.chunk.js",
+    "static/js/2.ae068816.chunk.js.map": "/YWC/static/js/2.ae068816.chunk.js.map",
+    "static/js/3.b768da5e.chunk.js": "/YWC/static/js/3.b768da5e.chunk.js",
+    "static/js/3.b768da5e.chunk.js.map": "/YWC/static/js/3.b768da5e.chunk.js.map",
+    "index.html": "/YWC/index.html",
+    "static/css/main.2ebc5c5b.chunk.css.map": "/YWC/static/css/main.2ebc5c5b.chunk.css.map",
+    "static/js/2.ae068816.chunk.js.LICENSE.txt": "/YWC/static/js/2.ae068816.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/YWC/static/media/map-background.015afe51.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4db7e0a4.js",
+    "static/js/2.ae068816.chunk.js",
+    "static/css/main.2ebc5c5b.chunk.css",
+    "static/js/main.84e5bd24.chunk.js"
+  ]
+}
